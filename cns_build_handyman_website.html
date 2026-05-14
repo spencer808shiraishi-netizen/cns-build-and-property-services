@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CNS Build and Property Services | Handyman Services in Lake County, FL</title>
+  <meta name="description" content="CNS Build and Property Services offers pressure washing, fence repair, hauling, lot mowing, siding repair, faucet repair, furniture assembly, and handyman services in Lake County, Florida." />
+  <style>
+    :root {
+      --navy: #001f4d;
+      --deep-navy: #001638;
+      --teal: #008c99;
+      --gold: #f7b500;
+      --silver: #c9c9c9;
+      --light: #f6f9fb;
+      --white: #ffffff;
+      --gray: #555;
+      --shadow: 0 10px 30px rgba(0, 31, 77, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--navy);
+      background: var(--light);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 15px rgba(0, 31, 77, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 4px solid var(--teal);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      color: var(--navy);
+      font-size: 1.05rem;
+    }
+
+    .brand img {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 22px;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    nav a:hover {
+      color: var(--teal);
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 10px 16px;
+      border-radius: 999px;
+      box-shadow: 0 5px 14px rgba(247, 181, 0, 0.28);
+    }
+
+    .hero {
+      background: linear-gradient(120deg, rgba(0, 31, 77, 0.95), rgba(0, 140, 153, 0.82)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: var(--white);
+      padding: 95px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      bottom: -150px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: rgba(247, 181, 0, 0.22);
+    }
+
+    .hero-content {
+      max-width: 740px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(247, 181, 0, 0.16);
+      border: 1px solid rgba(247, 181, 0, 0.55);
+      color: var(--gold);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.7rem);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #edf8fa;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 900;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      box-shadow: 0 8px 20px rgba(247, 181, 0, 0.28);
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--white);
+      color: var(--white);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 42px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+      color: var(--navy);
+    }
+
+    .section-title h2::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 4px;
+      background: var(--teal);
+      margin: 12px auto 0;
+      border-radius: 999px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      font-size: 1.05rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      border-top: 5px solid var(--gold);
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: var(--gray);
+    }
+
+    .about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .about-box {
+      background: var(--light);
+      padding: 28px;
+      border-radius: 18px;
+      border-left: 6px solid var(--teal);
+      box-shadow: 0 6px 18px rgba(0, 31, 77, 0.08);
+    }
+
+    .about-box h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .why-us {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .why-item {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0, 31, 77, 0.09);
+      font-weight: 900;
+      color: var(--teal);
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .cta-band {
+      background: linear-gradient(120deg, var(--navy), var(--teal));
+      color: var(--white);
+      text-align: center;
+      padding: 55px 0;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+    }
+
+    .cta-band p {
+      margin-bottom: 24px;
+      color: #edf8fa;
+    }
+
+    .contact {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-info {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      border-bottom: 6px solid var(--teal);
+    }
+
+    .contact-info h3 {
+      margin-bottom: 14px;
+      color: var(--gold);
+    }
+
+    .contact-info p {
+      margin-bottom: 12px;
+    }
+
+    form {
+      background: var(--light);
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--navy);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cfd7df;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--teal);
+      border-color: var(--teal);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    footer {
+      background: var(--deep-navy);
+      color: var(--white);
+      padding: 28px 0;
+      text-align: center;
+      border-top: 6px solid var(--teal);
+    }
+
+    footer p {
+      color: #ddd;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 850px) {
+      .nav {
+        flex-direction: column;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .cards,
+      .about-grid,
+      .contact-grid,
+      .why-us {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 70px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <!-- Replace logo.png with your actual logo file name -->
+        <img src="logo.png" alt="CNS Build and Property Services Logo" />
+        <span>CNS Build and Property Services</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="nav-cta" href="#contact">Request a Quote</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="eyebrow">Serving Lake County, Florida</span>
+        <h1>Reliable Handyman & Property Services Done Right</h1>
+        <p>From pressure washing and fence repair to lot mowing, hauling, exterior repairs, and furniture assembly — CNS Build and Property Services helps keep your property clean, safe, and well maintained.</p>
+        <div class="btn-row">
+          <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+          <a href="#services" class="btn btn-secondary">View Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Services</h2>
+          <p>Simple, dependable property maintenance and repair services for homeowners, landowners, and small businesses across Lake County.</p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Pressure Washing</h3>
+            <p>Driveways, sidewalks, patios, fences, exterior surfaces, and more. We help bring your property back to a clean, fresh look.</p>
+          </div>
+
+          <div class="card">
+            <h3>Fence & Gate Repair</h3>
+            <p>Repairing broken boards, leaning sections, damaged gates, latches, hinges, and general fence maintenance.</p>
+          </div>
+
+          <div class="card">
+            <h3>Material Haul Away & Pick Up</h3>
+            <p>Need materials picked up or unwanted items hauled away? We can help with small property cleanups and material transport.</p>
+          </div>
+
+          <div class="card">
+            <h3>Large Lot Mow & Maintenance</h3>
+            <p>Lot mowing, property cleanup, light trimming, and routine outdoor maintenance for large open lots and overgrown areas.</p>
+          </div>
+
+          <div class="card">
+            <h3>Siding & Faucet Repair</h3>
+            <p>Exterior siding repairs, small home fixes, faucet repairs, and practical handyman work to keep your property in shape.</p>
+          </div>
+
+          <div class="card">
+            <h3>Furniture Assembly</h3>
+            <p>Outdoor furniture, indoor furniture, shelving, fixtures, and other assembly projects completed carefully and efficiently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About CNS Build</h2>
+          <p>Built on practical skill, honest communication, and dependable service.</p>
+        </div>
+
+        <div class="about-grid">
+          <div>
+            <div class="about-box">
+              <h3>Jason Crandall</h3>
+              <p>Jason is a professional carpenter, metal worker, and project manager with hands-on experience in repairs, builds, fabrication, and property improvement projects.</p>
+            </div>
+            <br />
+            <div class="about-box">
+              <h3>Spencer Shiraishi</h3>
+              <p>Spencer is a professional landscaper with strong project management and hands-on working skills, specializing in outdoor property maintenance and dependable service.</p>
+            </div>
+          </div>
+
+          <div>
+            <h2>Local, Skilled, and Easy to Work With</h2>
+            <p>CNS Build and Property Services helps homeowners and property owners handle the jobs they do not have the time, tools, or experience to complete themselves. Whether it is repairing a gate, cleaning up a lot, fixing exterior damage, or assembling furniture, we focus on doing the work cleanly and professionally.</p>
+            <div class="why-us">
+              <div class="why-item">Local Service</div>
+              <div class="why-item">Honest Quotes</div>
+              <div class="why-item">Skilled Work</div>
+              <div class="why-item">Reliable Help</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <h2>Need a Hand With Your Property?</h2>
+        <p>Tell us what you need done and we will get back to you with a simple quote.</p>
+        <a href="#contact" class="btn btn-primary">Request Your Quote</a>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>Use the form below to describe your project. Add photos if needed so we can better understand the job.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Service Area</h3>
+            <p>Lake County, Florida and surrounding areas.</p>
+
+            <h3>Get a Quote</h3>
+            <p>For best results, include the service needed, property location, timeline, and any helpful details.</p>
+
+            <h3>Common Jobs</h3>
+            <p>Pressure washing, fence repair, gate repair, hauling, lot mowing, siding repair, faucet repair, and furniture assembly.</p>
+          </div>
+
+          <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email address" />
+
+            <label for="service">Service Needed</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option>Pressure Washing</option>
+              <option>Fence or Gate Repair</option>
+              <option>Material Haul Away or Pick Up</option>
+              <option>Large Lot Mow and Maintenance</option>
+              <option>Siding Repair</option>
+              <option>Faucet Repair</option>
+              <option>Furniture Assembly</option>
+              <option>Other Handyman Service</option>
+            </select>
+
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" placeholder="Describe what you need help with..." required></textarea>
+
+            <label for="photos">Upload Photos</label>
+            <input type="file" id="photos" name="photos" multiple accept="image/*" />
+
+            <button type="submit">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 CNS Build and Property Services. All rights reserved.</p>
+      <p>Handyman and property services in Lake County, Florida.</p>
+    </div>
+  </footer>
+</body>
+</html>
